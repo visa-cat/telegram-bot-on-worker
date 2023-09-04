@@ -20,6 +20,7 @@ export async function handleBotUpdate(
 }
 
 export async function handleBotCronEvent(
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   bot: Bot,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   env: Env,
@@ -28,7 +29,7 @@ export async function handleBotCronEvent(
 ): Promise<void> {
   // Handle worker cron events here
 
-  bot.api.sendMessage(1145141919810, 'Hello, world!');
+  // bot.api.sendMessage(1145141919810, 'Hello, world!');
 }
 
 export async function handleNonBotRequest(
