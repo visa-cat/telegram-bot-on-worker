@@ -14,8 +14,41 @@ export async function handleBotUpdate(
 
   // Example of adding a command handler with [grammY](https://grammy.dev/).
   // See https://grammy.dev/guide/basics.html
+
+  const url = new URL('https://restapi.plusofon.ru/api/v1/sms');
+
+  const headers = {
+    'Content-Type': 'application/json',
+    Accept: 'application/json',
+    Client: '10553',
+    Authorization: `Bearer ${env.PLUSOFON_TOKEN}`,
+  };
+
+  const body: Record<string, string> = {};
+
+  body.incoming = '0';
+  // {
+  //   // date_from: 'alias',
+  //   // date_to: 'natus',
+  //   // incoming: 3,
+  //   // receiver: 'facere',
+  //   // sender: 'rem',
+  //   // limit: 18,
+  //   incoming: 0,
+  // };
+
+  url.search = new URLSearchParams(body).toString();
+
+  const response = await fetch(url, {
+    headers,
+    // body: JSON.stringify(body),
+  });
+
   bot.command('start', async (ctx) => {
-    await ctx.reply('Hello, world!');
+    console.log(await response.json());
+    await ctx.reply(`<pre>${JSON.stringify(await response.json(), null, 2)}</pre>`, {
+      parse_mode: 'HTML',
+    });
   });
 }
 

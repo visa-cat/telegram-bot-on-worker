@@ -19,6 +19,9 @@
   },
   "eslintConfig": {
     "root": true,
+    "rules": {
+      "no-restricted-syntax": "off"
+    },
     "extends": [
       "airbnb-base",
       "airbnb-typescript/base"

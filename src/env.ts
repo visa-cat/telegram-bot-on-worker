@@ -1,6 +1,7 @@
 export default interface Env {
   TELEGRAM_TOKEN: string;
   TELEGRAM_SECRET: string;
+  PLUSOFON_TOKEN: string;
 
   // KV Namespaces
   // Declare your KV Namespaces here
