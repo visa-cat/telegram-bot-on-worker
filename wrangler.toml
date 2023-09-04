@@ -1,4 +1,4 @@
-name = "telegram-bot-on-worker"
+name = "visacat-plusofon-bot"
 main = "src/index.ts"
 compatibility_date = "2023-05-08"
 workers_dev = false

@@ -1,5 +1,5 @@
 {
-  "name": "telegram-bot-on-worker",
+  "name": "visacat-plusofon-bot",
   "version": "0.0.0",
   "dependencies": {
     "grammy": "^1.16.0"
