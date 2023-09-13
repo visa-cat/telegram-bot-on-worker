@@ -2,16 +2,16 @@ import { Bot } from 'grammy/web';
 import Env from './env';
 
 const formatNumber = (number: unknown) => {
-  if (Number.isInteger(number)) {
-    return `+${number}`;
+  if (Number.isNaN(number)) {
+    return number;
   }
 
-  return number;
+  return `+${number}`;
 };
 
 const formatMessage = (message: PlusofonMessage) => {
   const result = `<b>От кого:</b> <code>${formatNumber(message.src_number)}</code>\n`
-    + `<b>Кому:</b> <code>+${formatNumber(message.dst_number)}</code>\n`
+    + `<b>Кому:</b> <code>${formatNumber(message.dst_number)}</code>\n`
     + '\n'
     + `<pre>${message.content}</pre>`;
 
