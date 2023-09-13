@@ -32,10 +32,8 @@ export default {
 
     const bot = new Bot(env.TELEGRAM_TOKEN);
 
-    const recipients = [
-      347285241, // Aleksei
-      // 273806795, // Anastasia
-    ];
+    const recipients = env.TELEGRAM_RECEPIENTS.split(',')
+      .map((recepient) => parseInt(recepient, 10));
 
     for (const recipient of recipients) {
       // eslint-disable-next-line no-await-in-loop
