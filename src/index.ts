@@ -48,26 +48,20 @@ export default {
       .map((recepient) => parseInt(recepient, 10));
 
     for (const recipient of recipients) {
-      // eslint-disable-next-line no-await-in-loop
-      await bot.api.sendMessage(
-        recipient,
-        formatMessage(message),
-        {
-          parse_mode: 'HTML',
-        },
-      );
+      try {
+        // eslint-disable-next-line no-await-in-loop
+        await bot.api.sendMessage(
+          recipient,
+          formatMessage(message),
+          {
+            parse_mode: 'HTML',
+          },
+        );
+      } catch (e) {
+        console.warn(`Failed to send message to ${recipient}`, e);
+      }
     }
 
-    return Response.json({
-      ok: true,
-    });
-
-    // if (req.headers.get('x-telegram-bot-api-secret-token') === env.TELEGRAM_SECRET) {
-    //   const bot = new Bot(env.TELEGRAM_TOKEN);
-    //   await handleBotUpdate(bot, env);
-    //   return webhookCallback(bot, 'cloudflare-mod', { secretToken: env.TELEGRAM_SECRET })(req);
-    // }
-
-    // return handleNonBotRequest(req, env);
+    return new Response(null, { status: 200 });
   },
 };
