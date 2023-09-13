@@ -1,10 +1,22 @@
 import { Bot } from 'grammy/web';
 import Env from './env';
 
-const formatMessage = (message: PlusofonMessage) => `<b>От кого:</b> <pre>+${message.src_number}</pre>\n`
-  + `<b>Кому:</b> <pre>+${message.dst_number}</pre>\n`
-  + '\n'
-  + `<pre>${message.content}</pre>`;
+const formatNumber = (number: unknown) => {
+  if (Number.isInteger(number)) {
+    return `+${number}`;
+  }
+
+  return number;
+};
+
+const formatMessage = (message: PlusofonMessage) => {
+  const result = `<b>От кого:</b> <code>${formatNumber(message.src_number)}</code>\n`
+    + `<b>Кому:</b> <code>+${formatNumber(message.dst_number)}</code>\n`
+    + '\n'
+    + `<pre>${message.content}</pre>`;
+
+  return result;
+};
 
 interface PlusofonMessage {
   src_number: string;
