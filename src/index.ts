@@ -2,7 +2,7 @@ import { Bot } from 'grammy/web';
 import Env from './env';
 
 const formatNumber = (number: unknown) => {
-  if (Number.isNaN(number)) {
+  if (Number.isNaN(Number(number))) {
     return number;
   }
 
