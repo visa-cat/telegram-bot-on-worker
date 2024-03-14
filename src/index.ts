@@ -27,9 +27,9 @@ interface PlusofonMessage {
 
 export default {
   async fetch(req: Request, env: Env): Promise<Response> {
-    if (req.headers.get('x-telegram-bot-api-secret-token') === env.TELEGRAM_SECRET) {
-      return new Response(null, { status: 403 });
-    }
+    // if (req.headers.get('x-telegram-bot-api-secret-token') === env.TELEGRAM_SECRET) {
+    //   return new Response(null, { status: 403 });
+    // }
 
     if (req.method !== 'POST') {
       return new Response(null, { status: 405 });

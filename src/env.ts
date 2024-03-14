@@ -1,6 +1,6 @@
 export default interface Env {
   TELEGRAM_TOKEN: string;
-  TELEGRAM_SECRET: string;
+  // TELEGRAM_SECRET: string;
   PLUSOFON_TOKEN: string;
   TELEGRAM_RECEPIENTS: string;
 
