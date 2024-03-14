@@ -3,6 +3,9 @@ main = "src/index.ts"
 compatibility_date = "2023-05-08"
 workers_dev = false
 
+[vars]
+TELEGRAM_RECEPIENTS = "347285241"
+
 # Declare a Cloudflare Worker KV namespace
 # See https://developers.cloudflare.com/workers/wrangler/workers-kv/
 # and https://developers.cloudflare.com/workers/runtime-apis/kv/
